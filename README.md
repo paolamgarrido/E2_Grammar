@@ -15,8 +15,6 @@ Note: All sentences must end with a period.
 
 To implement this solution, we will utilize an LL(1) parser, a top-down parsing technique commonly employed in computational linguistics. The term "LL" signifies "left-to-right, leftmost derivation," denoting the parser's approach of reading input and constructing parse trees. It initiates parsing from the leftmost symbol of the input string and progresses towards the right. The "(1)" indicates that the parser employs a single token of lookahead when making parsing decisions, streamlining the parsing process and obviating the need for backtracking. (GeeksforGeeks, 2023)
 
-It's essential to highlight that this method entails the use of a parsing table (which we will elaborate on later). This table serves to map combinations of non-terminal symbols and lookahead tokens to production rules.
-
 ## Models
 
 In the process of implementing a parser for our language, constructing an appropriate grammar serves as the cornerstone of successful parsing. To achieve this goal, we will go through three fundamental construction steps meticulously designed to ensure completeness, clarity, and efficiency in parsing sentences.
@@ -110,11 +108,7 @@ Another consideration taken into account for the solution was the construction o
 
 In this project, once more we embarked on the implementation of lexical analysis to develop a parser capable of accurately detecting whether input sentences conform to a predefined grammar structure. Our focus language, Danish, posed unique challenges due to its intricate syntax and diverse sentence structures.
 
-The constructed grammar model encapsulated the essence and structure of the Danish language, while also addressing issues of ambiguity and left recursion, in order to ensure clarity and efficiency in parsing sentences. This comprehensive approach culminated in the formation of the LL(1) Parsing Table, a crucial component derived from the meticulous procedures undertaken throughout the project.
-
-LL(1) Parsing Table: https://docs.google.com/spreadsheets/d/1f4ZcFFTbWtQYU84KXP23j_wLnctajQiza7L9aPHi_wk/edit?usp=sharing
-
-The LL(1) Parsing Table serves as tangible evidence of our grammar's classification within the Chomsky Hierarchy Extended Level as a context-free grammar. This classification is attributed to several distinguishing traits:
+The constructed grammar model encapsulated the essence and structure of the Danish language while also addressing issues of ambiguity and left recursion, ensuring clarity and efficiency in parsing sentences. Now, after all, we can state that our grammar is classified within the Chomsky Hierarchy's Extended Level as a context-free grammar. This classification is attributed to several distinguishing traits:
 
 - **Start Symbol**: The grammar designates 'S' as the start symbol, initiating the derivation of valid sentences.
 - **Non-terminal Symbols**: Non-terminal symbols ('S', 'Saux1', 'Saux2', 'E1', 'E2', etc.) represent syntactic structures within the language.
