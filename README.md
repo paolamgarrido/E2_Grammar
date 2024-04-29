@@ -10,6 +10,7 @@ The language in focus is Danish, for which we will build a grammar that accepts 
 3. **Verb Phrases**: are built mainly with verbs, verbs with prepositional phrases, and adverbs
 4. **Subordinated Sentences**: they start with a conjunction followed by a Verb phrase + Noun phrase and end with a Main clause
 5. **Sentences separated by commas and conjunctions**: a set of nouns and verbs separated by commas or Main clauses separated by conjunctions
+
 Note: All sentences must end with a period.
 
 To implement this solution, we will utilize an LL(1) parser, a top-down parsing technique commonly employed in computational linguistics. The term "LL" signifies "left-to-right, leftmost derivation," denoting the parser's approach of reading input and constructing parse trees. It initiates parsing from the leftmost symbol of the input string and progresses towards the right. The "(1)" indicates that the parser employs a single token of lookahead when making parsing decisions, streamlining the parsing process and obviating the need for backtracking. (GeeksforGeeks, 2023)
