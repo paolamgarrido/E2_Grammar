@@ -26,6 +26,8 @@ First, we will initiate the process by generating a grammar that encapsulates th
 **Grammar Model that Recognizes the Language**
 
 ![Grammar Model](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/fb8626b4-0ad3-4eac-968e-90c9c733fde1)
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/d75cbc19-5439-45a2-a9c6-8d60bbb143a4)
+
 
 During this phase, the basic syntactic units and rules governing sentence formation were identified. We defined non-terminal symbols to represent distinct syntactic categories, alongside sequences of terminal symbols representing words or punctuation. This approach guarantees comprehensive coverage of the language's syntax, ensuring accurate representation.
 
@@ -34,6 +36,8 @@ To further refine our grammar, we must address two critical issues: ambiguity an
 **Grammar Model with the Elimination of Ambiguity**
 
 ![Grammar Model](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/c24b349d-e266-4f8b-9f76-21b2849436fe)
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/e48938d9-838f-4188-9e34-05646ff02dbd)
+
 
 In accordance with Michael Sipser's discussion on ambiguity in context-free grammars in 'Introduction to the Theory of Computation,' it is evident that ambiguity poses significant challenges in parsing and interpretation. Sipser defines ambiguity as the situation where a grammar generates the same string in several different ways, leading to multiple parse trees and varying interpretations of the input.
 
@@ -42,8 +46,39 @@ In our grammar construction process, ambiguity was eliminated by restructuring p
 **Grammar Model with No Left Recursion**
 
 ![Grammar Model](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/faa7c877-9a37-4c08-9ff8-1588f0c005d5)
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/3fd955eb-b4dd-42fe-a7ef-3b67c4ef20a5)
+
 
 Left recursion in a grammar occurs when a non-terminal symbol can directly or indirectly produce a string beginning with itself, which can lead to parsing inefficiencies (Sipser, 2013). To overcome this obstacle, we need to revise production rules to eliminate left recursion. In our approach, left recursion was addressed using recursion elimination algorithms, as described by Sipser. Therefore, we substituted the productions presenting left recursions with two new productions. In these new productions, the first element is a terminal symbol followed by an intermediate state represented with ', which can lead to empty derivations "ε".
+
+## Implementation + Testing
+
+Once our three models were complete and our grammar was ready, the implementation of our final model began. We chose to work with the Natural Language Toolkit (NLTK), which provides a suite of libraries and programs for symbolic and statistical natural language processing (NLP) tasks, including tokenization, parsing, classification and semantic reasoning.
+
+It is important to note that during the implementation of our third model, we encountered a couple of issues. NLTK, while robust for many NLP tasks, posed challenges in accommodating our specific grammar representation. Consequently, we needed to adapt our notation to align with NLTK's requirements. This adjustment involved incorporating additional states to represent the new productions generated during the elimination of left recursion while maintaining the original model's concept. Despite these modifications, our grammar remained free from ambiguity and left recursion, ensuring equivalence between the original and adapted model.
+
+**Grammar Model with No Left Recursion Adopted**
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/23c0b5ae-494a-4648-8c3d-2b71154a1d38)
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/f52396fc-3699-4755-9277-0628e3b65868)
+
+To run and test the program you can use the following steps as a guide:
+Install Python if you haven't already. You can download it from [python.org](https://www.python.org/downloads/).
+Clone this repository to your local machine and navigate to the directory containing the program in your terminal. 
+Install NLTK by running the following command: pip install nltk
+Then run the program using the command: python grammartest.py 
+
+If you have trouble with the installation of NLTK, feel free to run the program here:
+https://colab.research.google.com/drive/1ZPy30tY0SpoJvbVV0WUYNP4oxmeN85Ti?usp=sharing
+
+
+Upon running the program, the output will display the parsed trees for the input test sentences written in the file, indicating whether they conform to the grammar. Any errors or exceptions will also be shown in the terminal.
+
+Part of the Language Expected Output:
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/6cf466c7-aa08-43ed-b4aa-a739ecb352e2)
+
+Not Part of the Language Expected Output:
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/b3b9eb46-f62d-4efb-bf8a-e43fb2981de6)
+
 
 ## References
 Sipser, M. (2013). Introduction to the Theory of Computation. En SIGACT news (Vol. 3, pp. 106-110). Cengage Learning. http://debracollege.dspaces.org/bitstream/123456789/671/1/Introduction%20to%20the%20Theory%20of%20Computation_2013%20Sipser.pdf
