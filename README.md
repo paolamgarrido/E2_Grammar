@@ -55,7 +55,7 @@ Left recursion in a grammar occurs when a non-terminal symbol can directly or in
 
 Once our three models were complete and our grammar was ready, the implementation of our final model began. We chose to work with the Natural Language Toolkit (NLTK), which provides a suite of libraries and programs for symbolic and statistical natural language processing (NLP) tasks, including tokenization, parsing, classification and semantic reasoning.
 
-It is important to note that during the implementation of our third model, we encountered a couple of issues. NLTK, while robust for many NLP tasks, posed challenges in accommodating our specific grammar representation. Consequently, we needed to adapt our notation to align with NLTK's requirements. This adjustment involved incorporating additional states to represent the new productions generated during the elimination of left recursion while maintaining the original model's concept. Despite these modifications, our grammar remained free from ambiguity and left recursion, ensuring equivalence between the original and adapted model.
+It is important to note that during the implementation of our third model, NLTK, posed challenges in accommodating our specific grammar representation. Consequently, we needed to adapt our notation to align with NLTK's requirements. This adjustment involved incorporating additional states to represent the new productions generated during the elimination of left recursion while maintaining the original model's concept. Despite these modifications, our grammar remained free from ambiguity and left recursion, ensuring equivalence between the original and adapted model.
 
 **Grammar Model with No Left Recursion Adopted**
 
