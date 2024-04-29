@@ -112,7 +112,7 @@ In this project, once more we embarked on the implementation of lexical analysis
 
 The constructed grammar model encapsulated the essence and structure of the Danish language, while also addressing issues of ambiguity and left recursion, in order to ensure clarity and efficiency in parsing sentences. This comprehensive approach culminated in the formation of the LL(1) Parsing Table, a crucial component derived from the meticulous procedures undertaken throughout the project.
 
-TABLA 
+LL(1) Parsing Table: https://docs.google.com/spreadsheets/d/1f4ZcFFTbWtQYU84KXP23j_wLnctajQiza7L9aPHi_wk/edit?usp=sharing
 
 The LL(1) Parsing Table serves as tangible evidence of our grammar's classification within the Chomsky Hierarchy Extended Level as a context-free grammar. This classification is attributed to several distinguishing traits:
 
