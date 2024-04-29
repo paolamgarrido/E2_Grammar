@@ -12,37 +12,39 @@ The language in focus is Danish, for which we will build a grammar that accepts 
 5. **Sentences separated by commas and conjunctions**: a set of nouns and verbs separated by commas or Main clauses separated by conjunctions
 Note: All sentences must end with a period.
 
-To implement this solution, we will utilize an LL(1) parser, a top-down parsing technique commonly employed in computational linguistics. The term "LL" signifies "left-to-right, leftmost derivation," denoting the parser's approach of reading input and constructing parse trees. It initiates parsing from the leftmost symbol of the input string and progresses towards the right. The "(1)" indicates that the parser employs a single token of lookahead when making parsing decisions, streamlining the parsing process and obviating the need for backtracking.
+To implement this solution, we will utilize an LL(1) parser, a top-down parsing technique commonly employed in computational linguistics. The term "LL" signifies "left-to-right, leftmost derivation," denoting the parser's approach of reading input and constructing parse trees. It initiates parsing from the leftmost symbol of the input string and progresses towards the right. The "(1)" indicates that the parser employs a single token of lookahead when making parsing decisions, streamlining the parsing process and obviating the need for backtracking. (CITA)
 
 It's essential to highlight that this method entails the use of a parsing table (which we will elaborate on later). This table serves to map combinations of non-terminal symbols and lookahead tokens to production rules.
 
-https://www.geeksforgeeks.org/construction-of-ll1-parsing-table/
-
 ## Models
 
-In the process of implementing a parser for our language, constructing an appropriate grammar serves as the cornerstone of successful parsing. To achieve this goal, we will go through three fundamental construction steps, meticulously designed to ensure completeness, clarity, and efficiency in parsing sentences.
+In the process of implementing a parser for our language, constructing an appropriate grammar serves as the cornerstone of successful parsing. To achieve this goal, we will go through three fundamental construction steps meticulously designed to ensure completeness, clarity, and efficiency in parsing sentences.
 
 First, we will initiate the process by generating a grammar that encapsulates the essence and structure of our language's syntax.
 
 **Grammar Model that Recognizes the Language**
 
-![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/fb8626b4-0ad3-4eac-968e-90c9c733fde1)
+![Grammar Model](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/fb8626b4-0ad3-4eac-968e-90c9c733fde1)
 
-During this phase, our focus lies in identifying the basic syntactic units and establishing rules governing sentence formation. We define non-terminal symbols to represent distinct syntactic categories, alongside sequences of terminal symbols representing words or punctuation. This approach guarantees comprehensive coverage of the language's syntax, ensuring accurate representation.
+During this phase, the basic syntactic units and rules governing sentence formation were identified. We defined non-terminal symbols to represent distinct syntactic categories, alongside sequences of terminal symbols representing words or punctuation. This approach guarantees comprehensive coverage of the language's syntax, ensuring accurate representation.
 
-Next, we will address ambiguity within the grammar, ensuring each sentence possesses a singular interpretation.
+To further refine our grammar, we must address two critical issues: ambiguity and left recursion.
 
 **Grammar Model with the Elimination of Ambiguity**
 
-![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/c24b349d-e266-4f8b-9f76-21b2849436fe)
+![Grammar Model](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/c24b349d-e266-4f8b-9f76-21b2849436fe)
 
-Ambiguity in a grammar emerges when a sentence can be derived through multiple sequences of production rules, leading to parsing complexities and varying interpretations of the same input.
+In accordance with Michael Sipser's discussion on ambiguity in context-free grammars in 'Introduction to the Theory of Computation,' it is evident that ambiguity poses significant challenges in parsing and interpretation. Sipser defines ambiguity as the situation where a grammar generates the same string in several different ways, leading to multiple parse trees and varying interpretations of the input.
 
-Lastly, we will confront left recursion, a common hurdle in parsing algorithms, to streamline the parsing process.
+In our grammar construction process, ambiguity was eliminated by restructuring production rules and introducing additional constraints that indicated precedence, effectively eliminating the “or” states (Sipser, 2012).
 
 **Grammar Model with No Left Recursion**
 
-![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/faa7c877-9a37-4c08-9ff8-1588f0c005d5)
+![Grammar Model](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/faa7c877-9a37-4c08-9ff8-1588f0c005d5)
+
+Left recursion in a grammar occurs when a non-terminal symbol can directly or indirectly produce a string beginning with itself, which can lead to parsing inefficiencies (CITA). To overcome this obstacle, we need to revise production rules to eliminate left recursion. In our approach, left recursion was addressed using recursion elimination algorithms, as described by Sipser. Therefore, we substituted the productions presenting left recursions with two new productions. In these new productions, the first element is a terminal symbol, and an intermediate state represented by 'ε' is introduced to signify empty derivations.
 
 
-Left recursion occurs when a non-terminal symbol directly or indirectly produces a string beginning with itself. This phenomenon poses risks of algorithmic inefficiencies, including infinite loops and poor parsing efficacy.
+## References
+
+https://www.geeksforgeeks.org/construction-of-ll1-parsing-table/
