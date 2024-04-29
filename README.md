@@ -58,6 +58,7 @@ Once our three models were complete and our grammar was ready, the implementatio
 It is important to note that during the implementation of our third model, we encountered a couple of issues. NLTK, while robust for many NLP tasks, posed challenges in accommodating our specific grammar representation. Consequently, we needed to adapt our notation to align with NLTK's requirements. This adjustment involved incorporating additional states to represent the new productions generated during the elimination of left recursion while maintaining the original model's concept. Despite these modifications, our grammar remained free from ambiguity and left recursion, ensuring equivalence between the original and adapted model.
 
 **Grammar Model with No Left Recursion Adopted**
+
 ![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/23c0b5ae-494a-4648-8c3d-2b71154a1d38)
 ![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/f52396fc-3699-4755-9277-0628e3b65868)
 
