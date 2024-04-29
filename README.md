@@ -83,6 +83,29 @@ Not Part of the Language Expected Output:
 ![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/b3b9eb46-f62d-4efb-bf8a-e43fb2981de6)
 
 
+## Complexity
+
+The complexity of our program taking into account the original file where only one sentence is tested, we can consider an input sentence length of ‘k’, meaning the time complexity of parsing is O(k^3).
+
+**Inductive Step**:
+Now, let's consider an input sentence of length 'k+1'. Tokenizing this sentence takes O(k+1) time. The parsing process involves constructing parse trees based on the CFG rules, which has a time complexity of O((k+1)^3) according to our inductive hypothesis. Therefore, the overall time complexity for an input sentence of length 'k+1' is O(k+1) + O((k+1)^3). Expanded as follows: 
+
+O((k+1)^3):
+O((k+1)^3) = O(k^3 + 3k^2 + 3k + 1)
+
+Resulting in an overall time complexity of approximately: 
+O((k+1)^3) ≈ O(k^3)
+
+Thus, by induction, we've shown that the time complexity of parsing an input sentence of length 'n' is O(n^3).
+
+Meanwhile, are test program has an  approximated time complexity of O(N * (m + n^3)), where 'N' is the number of input sentences, 'm' is the average length of tokenized sentences, and 'n' is the average length of input sentences (assuming that the grammar remains constant across all parsing operations).
+
+**Different approaches**
+
+Another consideration taken into account for the solution was the construction of a pushdown automaton. However, given the complexity of the grammar and the considerable number of states involved, this approach no longer appeared viable to me. This is primarily due to the fact that the complexity of a pushdown automaton is often assessed in terms of both the number of states and the length of the input string. In this scenario, the time complexity could range from linear to potentially exponential. Taking into account implementation considerations such as coding efficiency, time constraints, and simplicity, utilizing a library such as NLTK seems to be a more user-friendly and pragmatic option.
+
+## Analysis
+
 ## References
 Sipser, M. (2013). Introduction to the Theory of Computation. En SIGACT news (Vol. 3, pp. 106-110). Cengage Learning. http://debracollege.dspaces.org/bitstream/123456789/671/1/Introduction%20to%20the%20Theory%20of%20Computation_2013%20Sipser.pdf
 
