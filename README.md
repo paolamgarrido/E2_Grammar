@@ -24,58 +24,25 @@ In the process of implementing a parser for our language, constructing an approp
 
 First, we will initiate the process by generating a grammar that encapsulates the essence and structure of our language's syntax.
 
-**M1**
-S -> NP VP | NP | VP | SC Punct VP NP PP | S Punct | S Conj S 
-SC -> Conj NP VP
-PP -> P NP
-NP -> N | DetN | Pron | Det N | Pron N | Det AdjE N | NP PP | NP Punct NP | NP Conj NP
-VP -> V | V NP | V AdvE | V NP AdvE | V PP | VP Punct VP | VP Conj VP
-AdjE -> Adj Conj Adj | Adj 
-AdvE -> Adv Conj Adv | Adv 
+**Grammar Model that Recognizes the Language**
+
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/fb8626b4-0ad3-4eac-968e-90c9c733fde1)
 
 During this phase, our focus lies in identifying the basic syntactic units and establishing rules governing sentence formation. We define non-terminal symbols to represent distinct syntactic categories, alongside sequences of terminal symbols representing words or punctuation. This approach guarantees comprehensive coverage of the language's syntax, ensuring accurate representation.
 
 Next, we will address ambiguity within the grammar, ensuring each sentence possesses a singular interpretation.
 
-**M2**
-S -> S Punct | S Conj E | E 
-E -> MC | NP | VP | SS 
-MC -> NP VP
-SS -> SC Punct VP NP
-SC -> Conj NP VP
-PP -> P NP
-NP -> NP Punct SimpleNP | NP PP | SimpleNP
-SimpleNP -> N | DetN | Pron | Det N | Pron N | Det AdjE N 
-VP -> VP Punct SimpleVP | SimpleVP
-SimpleVP -> V | V NP | V AdvE | V NP AdvE | V PP 
-AdjE -> AdjE Conj SimpleAdj | SimpleAdj
-SimpleAdj -> Adj
-AdvE -> AdvE Conj SimpleAdv | SimpleAdv
-SimpleAdv -> Adv
+**Grammar Model with the Elimination of Ambiguity**
+
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/c24b349d-e266-4f8b-9f76-21b2849436fe)
 
 Ambiguity in a grammar emerges when a sentence can be derived through multiple sequences of production rules, leading to parsing complexities and varying interpretations of the same input.
 
 Lastly, we will confront left recursion, a common hurdle in parsing algorithms, to streamline the parsing process.
 
-**M3**
- S -> E S'
- S' -> Punct S' | Conj E S' | ε
- E -> MC | NP | VP | SS 
- MC -> NP VP
- SS -> SC Punct VP N PP
- SC -> Conj NP VP
- PP -> P NP
- NP -> SimpleNP NP'
- NP' -> P NP NP' | Punct SimpleNP NP' | ε
- SimpleNP -> N | DetN | Pron | Det N | Pron N | Det AdjE N 
- VP -> SimpleVP VP'
- VP' -> Punct SimpleVP VP' | ε
- SimpleVP -> V | V NP | V AdvE | V NP AdvE | V PP 
- AdjE -> SimpleAdj AdjE'
- AdjE' -> Conj SimpleAdj AdjE' | ε
- SimpleAdj -> Adj
- AdvE -> SimpleAdv AdvE'
- AdvE' -> Conj SimpleAdv AdvE' | ε
- SimpleAdv -> Adv
+**Grammar Model with No Left Recursion**
+
+![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/faa7c877-9a37-4c08-9ff8-1588f0c005d5)
+
 
 Left recursion occurs when a non-terminal symbol directly or indirectly produces a string beginning with itself. This phenomenon poses risks of algorithmic inefficiencies, including infinite loops and poor parsing efficacy.
