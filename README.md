@@ -85,26 +85,45 @@ Not Part of the Language Expected Output:
 
 ## Complexity
 
-The complexity of our program taking into account the original file where only one sentence is tested, we can consider an input sentence length of ‘k’, meaning the time complexity of parsing is O(k^3).
+The complexity of our program, taking into account the original file where only one sentence is tested, can be considered to have an input sentence length of ‘k’, meaning the time complexity of parsing is O(k^3).
 
 **Inductive Step**:
-Now, let's consider an input sentence of length 'k+1'. Tokenizing this sentence takes O(k+1) time. The parsing process involves constructing parse trees based on the CFG rules, which has a time complexity of O((k+1)^3) according to our inductive hypothesis. Therefore, the overall time complexity for an input sentence of length 'k+1' is O(k+1) + O((k+1)^3). Expanded as follows: 
+Now, let's consider an input sentence of length 'k+1', meaning tokenizing this input sentence takes O(k+1) time. The parsing process involves constructing parse trees based on the CFG rules, which has a time complexity of O((k+1)^3) according to our inductive hypothesis. Therefore, the overall time complexity for an input sentence of length 'k+1' is O(k+1) + O((k+1)^3).
+
+Expanded as follows: 
 
 O((k+1)^3):
 O((k+1)^3) = O(k^3 + 3k^2 + 3k + 1)
 
-Resulting in an overall time complexity of approximately: 
+The resulting overall time complexity is approximately: 
 O((k+1)^3) ≈ O(k^3)
 
 Thus, by induction, we've shown that the time complexity of parsing an input sentence of length 'n' is O(n^3).
 
-Meanwhile, are test program has an  approximated time complexity of O(N * (m + n^3)), where 'N' is the number of input sentences, 'm' is the average length of tokenized sentences, and 'n' is the average length of input sentences (assuming that the grammar remains constant across all parsing operations).
+Meanwhile, our test program has an approximate time complexity of O(N * (m + n^3)), where 'N' is the number of input sentences, 'm' is the average length of tokenized sentences, and 'n' is the average length of input sentences (assuming that the grammar remains constant across all parsing operations).
 
 **Different approaches**
 
-Another consideration taken into account for the solution was the construction of a pushdown automaton. However, given the complexity of the grammar and the considerable number of states involved, this approach no longer appeared viable to me. This is primarily due to the fact that the complexity of a pushdown automaton is often assessed in terms of both the number of states and the length of the input string. In this scenario, the time complexity could range from linear to potentially exponential. Taking into account implementation considerations such as coding efficiency, time constraints, and simplicity, utilizing a library such as NLTK seems to be a more user-friendly and pragmatic option.
+Another consideration taken into account for the solution was the construction of a pushdown automaton. However, given the complexity of the grammar and the considerable number of states involved, this approach no longer appeared viable to me. This is primarily due to the fact that the complexity of a pushdown automaton is often assessed in terms of both the number of states and the length of the input string. In this scenario, the time complexity could range from linear to potentially exponential. Considering implementation considerations such as coding efficiency, time constraints, and simplicity, utilizing a library such as NLTK seems to be a more user-friendly and pragmatic option.
 
 ## Analysis
+
+In this project, once more we embarked on the implementation of lexical analysis to develop a parser capable of accurately detecting whether input sentences conform to a predefined grammar structure. Our focus language, Danish, posed unique challenges due to its intricate syntax and diverse sentence structures.
+
+The constructed grammar model encapsulated the essence and structure of the Danish language, while also addressing issues of ambiguity and left recursion, in order to ensure clarity and efficiency in parsing sentences. This comprehensive approach culminated in the formation of the LL(1) Parsing Table, a crucial component derived from the meticulous procedures undertaken throughout the project.
+
+TABLA 
+
+The LL(1) Parsing Table serves as tangible evidence of our grammar's classification within the Chomsky Hierarchy Extended Level as a context-free grammar. This classification is attributed to several distinguishing traits:
+
+- **Start Symbol**: The grammar designates 'S' as the start symbol, initiating the derivation of valid sentences.
+- **Non-terminal Symbols**: Non-terminal symbols ('S', 'Saux1', 'Saux2', 'E1', 'E2', etc.) represent syntactic structures within the language.
+- **Terminal Symbols**: Terminal symbols, including words and punctuation marks, are explicitly defined in the grammar rules.
+- **Production Rules**: The grammar counts with a finite set of rules specifying how non-terminal symbols can be expanded into sequences of terminal and/or non-terminal symbols. These rules contribute to the formation of coherent sentences.
+- **Parsing Efficiency**: Context-free grammars are efficiently parsable using algorithms such as LL(1). Our grammar demonstrates parsing efficiency through the elimination of ambiguity and left recursion."
+
+Still, its most outstanding trait is its context-free nature. In a context-free grammar, production rules are not dependent on the context surrounding a non-terminal symbol. This means that each sentence structure can be formed with different words when replaced with its corresponding right side, regardless of the symbols surrounding it.
+
 
 ## References
 Sipser, M. (2013). Introduction to the Theory of Computation. En SIGACT news (Vol. 3, pp. 106-110). Cengage Learning. http://debracollege.dspaces.org/bitstream/123456789/671/1/Introduction%20to%20the%20Theory%20of%20Computation_2013%20Sipser.pdf
