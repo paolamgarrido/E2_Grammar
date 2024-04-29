@@ -75,9 +75,11 @@ https://colab.research.google.com/drive/1ZPy30tY0SpoJvbVV0WUYNP4oxmeN85Ti?usp=sh
 Upon running the program, the output will display the parsed trees for the input test sentences written in the file, indicating whether they conform to the grammar. Any errors or exceptions will also be shown in the terminal.
 
 Part of the Language Expected Output:
+
 ![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/6cf466c7-aa08-43ed-b4aa-a739ecb352e2)
 
 Not Part of the Language Expected Output:
+
 ![image](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/b3b9eb46-f62d-4efb-bf8a-e43fb2981de6)
 
 
