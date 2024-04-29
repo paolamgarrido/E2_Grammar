@@ -43,7 +43,7 @@ In our grammar construction process, ambiguity was eliminated by restructuring p
 
 ![Grammar Model](https://github.com/paolamgarrido/E2_Grammar/assets/111533069/faa7c877-9a37-4c08-9ff8-1588f0c005d5)
 
-Left recursion in a grammar occurs when a non-terminal symbol can directly or indirectly produce a string beginning with itself, which can lead to parsing inefficiencies (Sipser, 2013). To overcome this obstacle, we need to revise production rules to eliminate left recursion. In our approach, left recursion was addressed using recursion elimination algorithms, as described by Sipser. Therefore, we substituted the productions presenting left recursions with two new productions. In these new productions, the first element is a terminal symbol, and an intermediate state represented by ', which can leat empty derivations represented by ε.
+Left recursion in a grammar occurs when a non-terminal symbol can directly or indirectly produce a string beginning with itself, which can lead to parsing inefficiencies (Sipser, 2013). To overcome this obstacle, we need to revise production rules to eliminate left recursion. In our approach, left recursion was addressed using recursion elimination algorithms, as described by Sipser. Therefore, we substituted the productions presenting left recursions with two new productions. In these new productions, the first element is a terminal symbol followed by an intermediate state represented with ', which can lead to empty derivations "ε".
 
 ## References
 Sipser, M. (2013). Introduction to the Theory of Computation. En SIGACT news (Vol. 3, pp. 106-110). Cengage Learning. http://debracollege.dspaces.org/bitstream/123456789/671/1/Introduction%20to%20the%20Theory%20of%20Computation_2013%20Sipser.pdf
