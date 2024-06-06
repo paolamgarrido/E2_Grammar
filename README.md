@@ -1,4 +1,4 @@
-# E1 Implementation of Lexical Analysis
+# E2 Generating and Cleaning a Restricted Context Free Grammar
 
 ## Description
 Grammars play a pivotal role in the implementation of computational methods for language processing since they provide a formal foundation for understanding, generating, and manipulating linguistic data in a wide range of applications. Essentially, a grammar describes the structure of a language, consisting of a set of rules that dictate how words and symbols in a language can be combined to form valid sentences or strings. In this context, we will delve into the development of a parser designed to accurately detect whether the sentences in question are indeed part of the grammar’s language.
